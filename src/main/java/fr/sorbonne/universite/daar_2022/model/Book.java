@@ -1,32 +1,21 @@
 package fr.sorbonne.universite.daar_2022.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "book")
 public class Book {
 
 	@Id
-	@Column(name = "id")
+	@GeneratedValue
 	private long id;
-	@Column(name = "type")
 	private String type;
-	@Column(name = "issued")
 	private String issued;
-	@Column(name = "title")
 	private String title;
-	@Column(name = "language")
 	private String language;
-	@Column(name = "authors")
 	private String authors;
-	@Column(name = "subjects")
 	private String subjects;
-	@Column(name = "locc")
 	private String locc;
-	@Column(name = "bookshelves")
 	private String bookshelves;
 
 	public Book(long id, String type, String issued, String title, String language, String authors, String subjects, String locc, String bookshelves) {
