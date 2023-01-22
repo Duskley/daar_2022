@@ -1,57 +1,38 @@
 package fr.sorbonne.universite.daar_2022.model;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 
 @Entity
 @Table(name = "book")
 public class Book {
 
-	@Id
-	@GeneratedValue
-	private long id;
-	private String type;
-	private String issued;
+	@Column(name = "title", length = 4096)
 	private String title;
-	private String language;
-	private String authors;
-	private String subjects;
-	private String locc;
-	private String bookshelves;
+	@Column(name = "author", length = 4096)
+	private String author;
+	@Column(name = "link", length = 4096)
+	private String link;
+	@Id
+	@Column(name = "id", length = 4096)
+	private long id;
+	@Column(name = "bookshelf", length = 4096)
+	private String bookshelf;
 
-	public Book(long id, String type, String issued, String title, String language, String authors, String subjects, String locc, String bookshelves) {
-		this.id = id;
-		this.type = type;
-		this.issued = issued;
+	@Column(name = "text", length = 4194304)
+	private String text;
+
+	public Book()
+	{
+
+	}
+
+	public Book(String title, String author, String link, long id, String bookshelf, String text) {
 		this.title = title;
-		this.language = language;
-		this.authors = authors;
-		this.subjects = subjects;
-		this.locc = locc;
-		this.bookshelves = bookshelves;
-	}
-
-	public long getId() {
-		return id;
-	}
-
-	public void setId(long id) {
+		this.author = author;
+		this.link = link;
 		this.id = id;
-	}
-
-	public String getType() {
-		return type;
-	}
-
-	public void setType(String type) {
-		this.type = type;
-	}
-
-	public String getIssued() {
-		return issued;
-	}
-
-	public void setIssued(String issued) {
-		this.issued = issued;
+		this.bookshelf = bookshelf;
+		this.text = text;
 	}
 
 	public String getTitle() {
@@ -62,58 +43,54 @@ public class Book {
 		this.title = title;
 	}
 
-	public String getLanguage() {
-		return language;
+	public String getAuthor() {
+		return author;
 	}
 
-	public void setLanguage(String language) {
-		this.language = language;
+	public void setAuthor(String author) {
+		this.author = author;
 	}
 
-	public String getAuthors() {
-		return authors;
+	public String getLink() {
+		return link;
 	}
 
-	public void setAuthors(String authors) {
-		this.authors = authors;
+	public void setLink(String link) {
+		this.link = link;
 	}
 
-	public String getSubjects() {
-		return subjects;
+	public long getId() {
+		return id;
 	}
 
-	public void setSubjects(String subjects) {
-		this.subjects = subjects;
+	public void setId(long id) {
+		this.id = id;
 	}
 
-	public String getLocc() {
-		return locc;
+	public String getBookshelf() {
+		return bookshelf;
 	}
 
-	public void setLocc(String locc) {
-		this.locc = locc;
+	public void setBookshelf(String bookshelf) {
+		this.bookshelf = bookshelf;
 	}
 
-	public String getBookshelves() {
-		return bookshelves;
+	public String getText() {
+		return text;
 	}
 
-	public void setBookshelves(String bookshelves) {
-		this.bookshelves = bookshelves;
+	public void setText(String text) {
+		this.text = text;
 	}
 
 	@Override
 	public String toString() {
 		return "Book{" +
-				"id=" + id +
-				", type='" + type + '\'' +
-				", issued='" + issued + '\'' +
-				", title='" + title + '\'' +
-				", language='" + language + '\'' +
-				", authors='" + authors + '\'' +
-				", subjects='" + subjects + '\'' +
-				", locc='" + locc + '\'' +
-				", bookshelves='" + bookshelves + '\'' +
+				"title='" + title + '\'' +
+				", author='" + author + '\'' +
+				", link='" + link + '\'' +
+				", id=" + id +
+				", bookshelf='" + bookshelf + '\'' +
 				'}';
 	}
 }
