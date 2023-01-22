@@ -7,7 +7,7 @@ public class DBLogProcessor implements ItemProcessor<Book, Book>
 {
     public Book process(Book book) throws Exception
     {
-        System.out.println("Inserting Book : " + book.toString());
+        System.out.println("Insertion Book : " + book.toString());
         return book;
     }
 }

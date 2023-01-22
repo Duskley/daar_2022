@@ -109,4 +109,4 @@ for key, row in df_metadata.iterrows():
 
 df_data = pd.DataFrame(data, columns = ['Title', 'Author', 'Link', 'ID', 'Bookshelf', 'Text'])
 
-df_data.to_csv('/content/gutenberg_data.csv', index=False)
+df_data.to_csv('gutenberg_data.csv', index=False)

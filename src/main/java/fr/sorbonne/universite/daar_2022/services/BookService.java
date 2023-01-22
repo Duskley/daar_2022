@@ -11,8 +11,14 @@ import java.util.*;
 public class BookService {
     @Autowired
     BookRepository bookRepository;
-
     public List<Book> getAllBooks() {
         return bookRepository.findAll();
+    }
+
+    public Optional<Book> getBookById(Long id) { return bookRepository.findById(id); }
+
+    public Book createBook(Book book) {
+        Book savedBook = bookRepository.save(book);
+        return savedBook;
     }
 }

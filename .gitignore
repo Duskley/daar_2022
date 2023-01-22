@@ -23,3 +23,5 @@
 hs_err_pid*
 
 target
+gutenberg_metadata.csv
+/src/main/resources/static/gutenberg_data.csv
