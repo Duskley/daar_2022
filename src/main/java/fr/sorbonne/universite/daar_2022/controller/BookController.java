@@ -4,6 +4,7 @@ import fr.sorbonne.universite.daar_2022.model.Book;
 import fr.sorbonne.universite.daar_2022.repository.BookRepository;
 import fr.sorbonne.universite.daar_2022.services.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -24,9 +25,9 @@ public class BookController {
     BookService bookService;
 
     @GetMapping
-    public ResponseEntity<List<Book>> getAllBooks() {
+    public ResponseEntity<Page<Book>> getAllBooks(@RequestParam int page) {
         try {
-            List<Book> books = bookService.getAllBooks();
+            Page<Book> books = bookService.getAllBooks(page);
 
             if (books.isEmpty()) {
                 return new ResponseEntity<>(HttpStatus.NO_CONTENT);
@@ -55,16 +56,16 @@ public class BookController {
         }
     }
 
+    /*
     @PostMapping
     public ResponseEntity createBook(@RequestBody Book book) throws URISyntaxException {
         Book savedBook = bookService.createBook(book);
         return ResponseEntity.created(new URI("/book/" + savedBook.getId())).body(savedBook);
     }
 
-    /*
     @PutMapping("/{id}")
-    public ResponseEntity updateClient(@PathVariable Long id, @RequestBody Book book) {
-        Book currentBook = BookRepository.findById(id).orElseThrow(RuntimeException::new);
+    public ResponseEntity updateBook(@PathVariable Long id, @RequestBody Book book) {
+        Book currentBook = bookRepository.findById(id).orElseThrow(RuntimeException::new);
         currentBook.setName(book.getName());
         currentBook.setEmail(book.getEmail());
         currentBook = bookRepository.save(book);
@@ -73,8 +74,8 @@ public class BookController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity deleteClient(@PathVariable Long id) {
-        BookRepository.deleteById(id);
+    public ResponseEntity deleteBook(@PathVariable Long id) {
+        bookRepository.deleteById(id);
         return ResponseEntity.ok().build();
     }
     */
