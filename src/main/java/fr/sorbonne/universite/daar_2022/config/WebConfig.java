@@ -9,6 +9,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 @Configuration
 public class WebConfig implements WebMvcConfigurer
 {
+    /*
     public void configureContentNegotiation(final ContentNegotiationConfigurer configurer) {
         configurer.favorPathExtension(true)
             .favorParameter(true)
@@ -23,9 +24,9 @@ public class WebConfig implements WebMvcConfigurer
         	.mediaType("sound", MediaType.APPLICATION_OCTET_STREAM)
         	.mediaType("gif", MediaType.IMAGE_GIF);
     }
+    */
 
-    public void addCorsMappings(CorsRegistry registry)
-    {
+    public void addCorsMappings(CorsRegistry registry) {
         registry.addMapping("/**").allowedOrigins("*");
     }
 }
