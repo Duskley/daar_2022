@@ -2,7 +2,7 @@
 
 
   <div class="row">
-    <label for="">Search here: </label>
+    <h3><label for="">Search here: </label></h3>
 
     <section class="example-section">
       <mat-radio-button  class="example-margin" value="basic" (change)="onItemChange($event.value)" [checked]="true">Basic Search</mat-radio-button >
@@ -11,8 +11,8 @@
     </section>
 
     <input type="text"  [(ngModel)]="searchText">
-    <input type="number"  [(ngModel)]="pageNumber">
-    <button (click)="searchThis(searchText,pageNumber)">Search</button>
+    <input type="number" min="0"  [(ngModel)]="pageNumber">
+    <button (click)="searchThis(searchText,pageNumber)" [disabled]="searchText==''">Search</button>
   </div>
 
   <div class="row">
