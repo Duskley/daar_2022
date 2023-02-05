@@ -1,0 +1,33 @@
+<div>
+
+
+  <div class="row">
+    <label for="">Search here: </label>
+
+    <section class="example-section">
+      <mat-radio-button  class="example-margin" value="basic" (change)="onItemChange($event.value)" [checked]="true">Basic Search</mat-radio-button >
+      <mat-radio-button class="example-margin" value="advanced" (change)="onItemChange($event.value)">Advanced Search</mat-radio-button >
+    </section>
+
+    <input type="text"  [(ngModel)]="searchText">
+    <input type="number"  [(ngModel)]="pageNumber">
+    <button (click)="searchThis(searchText,pageNumber)">Search</button>
+  </div>
+
+  <div class="row">
+    <div class="col">
+      <mat-card class="example-card" *ngFor="let item of books">
+        <mat-card-header>
+          <mat-card-subtitle>Author: {{item.author}}</mat-card-subtitle>
+          <mat-card-title>Title: {{item.title}}</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <p>{{item.link}}</p>
+          <mat-divider></mat-divider>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+
+
+</div>
