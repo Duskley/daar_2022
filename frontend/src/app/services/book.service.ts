@@ -15,6 +15,10 @@ export class BookService {
       const params = {query: text, page:pageNumber }
       return this.http.get<Book[]>(this.baseUrl+"basic-search",{params: params} )
     }
+    getStatisticSearchResult(word: string, pageNumber: any) {
+      const params = {word: word, page:pageNumber }
+      return this.http.get<Book[]>(this.baseUrl+"statistic-search",{params: params} )//{headers: headers, params: params}
+    }
 
     constructor(private http: HttpClient) { }
 

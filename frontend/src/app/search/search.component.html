@@ -7,6 +7,7 @@
     <section class="example-section">
       <mat-radio-button  class="example-margin" value="basic" (change)="onItemChange($event.value)" [checked]="true">Basic Search</mat-radio-button >
       <mat-radio-button class="example-margin" value="advanced" (change)="onItemChange($event.value)">Advanced Search</mat-radio-button >
+      <mat-radio-button class="example-margin" value="statistic" (change)="onItemChange($event.value)">Statistic Search</mat-radio-button >
     </section>
 
     <input type="text"  [(ngModel)]="searchText">

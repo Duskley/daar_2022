@@ -20,7 +20,19 @@ export class SearchComponent implements OnInit {
   }
   searchThis(searchText: string,pageNumber: number) {
     console.log("radio val: ", this.radioValue);
-    if(this.radioValue == "advanced")
+    if(this.radioValue == "statistic")
+    {
+      this.bookService.getStatisticSearchResult(searchText,pageNumber)
+        .subscribe((book: Book[]) => {
+            this.books = book;
+            console.log(book);
+          },
+          (err) => {
+            alert("failed loading json data");
+          }
+        );
+    }
+    else if(this.radioValue == "advanced")
     {
       this.bookService.getAdvancedSearchResult(searchText,pageNumber)
         .subscribe((book: Book[]) => {

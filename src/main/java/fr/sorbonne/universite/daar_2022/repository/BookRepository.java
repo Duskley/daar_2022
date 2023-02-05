@@ -19,4 +19,9 @@ public interface BookRepository extends PagingAndSortingRepository<Book, Long> {
            countQuery = "SELECT count(*) FROM book WHERE text ~ :regex",
            nativeQuery = true)
     List<Book> findTextWithRegex(@Param("regex") String regex, Pageable pageable);
+
+    @Query(value = "SELECT * FROM book",
+            countQuery  = "SELECT *, (LENGTH(text) - LENGTH(REPLACE(text, :word, ''))) / LENGTH(:word) AS OccurrenceCount FROM BOOK GROUP BY id ORDER BY OccurrenceCount DESC LIMIT 5",
+            nativeQuery = true)
+    List<Book> findByWordScore(String word, Pageable pageable);
 }
