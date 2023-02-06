@@ -18,5 +18,7 @@ BEFORE STARTING BACKEND:
 
 TO USE GUTENBERG SCRIPT FIRST INSTALL THE DEPENDENCIES:
 pip3 install bs4
+
 sudo apt install libdb5.3-dev
+
 pip3 install gutenberg
