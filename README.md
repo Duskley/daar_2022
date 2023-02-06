@@ -16,6 +16,7 @@ TO START ANGULAR:
 
 BEFORE STARTING BACKEND:
 - deplace gutenberg csv file to ressources\static
+- add -X option in the intellj terminal
 
 TO USE GUTENBERG SCRIPT FIRST INSTALL THE DEPENDENCIES:
 
