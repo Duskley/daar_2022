@@ -1,15 +1,15 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { SearchComponent } from './search/search.component'
-import { HomeComponent } from './home/home.component'
+import {HomeComponent} from "./home/home.component";
 
 const routes: Routes = [
-/*  {
+ {
     path: '',
-    redirectTo: 'home',
+    redirectTo: 'search',
     pathMatch: 'full'
   },
-  {
+/*   {
     path: 'home',
     loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
   },*/
@@ -17,8 +17,8 @@ const routes: Routes = [
     path: 'search', component: SearchComponent
   },
   {
-      path: 'home', component: HomeComponent
-    }
+    path: 'info', component: HomeComponent
+  },
 ];
 
 @NgModule({
